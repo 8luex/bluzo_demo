@@ -4,41 +4,302 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bluezo Course</title>
+    <title>BLUE♡</title>
 </head>
-<body>  
-    <header>
-        <h1>BLUE</h1>
-        <p>Course Demo ที่กำลังเรียนขำๆ</p>
-    </header>
-    <article>
-        <header>
-            <h2>What About Me?</h2>
-        </header>
-        <section>
-            <h4>สิ่งที่ชอบ</h4>
-            <ul>
-                <li>แมว</li>
-                <li>การนอน</li>
-                <li>ใครสักคน</li>
-            </ul>
-        </section>
-        <section>
-            <h4>สิ่งที่เกลียด</h4>
-            <ul>
-                <li>ความกดดัน</li>
-                <li>อากาศร้อน</li>
-                <li>ยุง</li>
-            </ul>
-        </section>
-        <footer>
-            <h4>เขียนโดย</h4>
-            <p>A non-toxic person BLUEZO</p>
-        </footer>
-    </article>
-    <footer>
-        <p>&#169 Copyright 2021</p>
-        <a href="https://www.instagram.com/8lluex/" target="_blank">Instagram</a>
-    </footer>
+<body>
+    <style type="text/css">
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,200&display=swap');
+        * {
+            margin: 0px auto;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        body {
+        animation: fadein 5s;
+        -moz-animation: fadein 5s; /* Firefox */ 
+        -webkit-animation: fadein 5s; /* Safari and Chrome */
+        -o-animation: fadein 5s; /* Opera */
+        background: rgb(175, 224, 255);
+        }
+        @keyframes fadein {
+            from { opacity: 0 } to { opacity: 1 }
+        }
+        @-moz-keyframes fadein {
+            from { opacity: 0 } to { opacity: 1 }
+        }
+        @-webkit-keyframes fadein {
+            from { opacity: 0 } to { opacity: 1 }
+        }
+        ::-webkit-scrollbar {
+            width:8px
+        }
+        ::-webkit-scrollbar-track {
+            background-color: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background-color: #a9d4e846;
+            border-radius: 25px;
+        }
+        ::-webkit-scrollbar:horizontal {
+            height: 0;
+        }
+        ::-webkit-scrollbar-thumb:vertical:hover, ::-webkit-scrollbar-thumb:horizontal:hover {
+            background: rgba(21, 124, 128, .5);
+            width: 0;
+            height: 0;
+        }
+        ::-moz-selection {
+            background: rgba(21, 124, 128, .5);
+            color: #FFFFFF;
+        }
+        ::selection {
+            background: rgba(21, 124, 128, .5);
+            color: #FFFFFF;
+        }
+        #video_panel_body, #video_panel, #imvuContent, #leftColumn {
+            width: 740px !important;
+        }
+        #video_panel_header,#rightColumn {
+            display: none;
+        }
+        .contain {
+            width: 740px;
+            height: 560px;
+            margin: 20px auto;
+            #margin-top: 20px;
+        }
+        .main {
+            width: 360px;
+            height: 560px;
+            box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
+            border-radius: 20px;
+            overflow: hidden;
+            background-color: floralwhite;
+            float: left;
+        }
+        .sidebar {
+            width: 360px;
+            height: 560px;
+            box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
+            border-radius: 20px;
+            overflow: hidden;
+            background-color: floralwhite;
+            float: right;
+        }
+        .img {
+            height: 255px;
+            background: #298fca;
+            overflow: hidden;
+        }
+        .img img {
+            width: 360px;
+        }
+        .content {
+            height: 260px;
+            text-align: center;
+            border-bottom: 2px solid #e5e5e5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .content h3 {
+            margin: 0;
+            font-size: x-small;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #e5e5e5;
+        }
+        .content h1 {
+            margin: 1rem 0;
+            border: 2px solid #00000000;
+            transition: all 0.50s ease;
+        }
+        .content h1:hover {
+            border: 2px solid rgba(21, 124, 128);
+            color: rgba(21, 124, 128);
+            transition: color 0.3s ease-in;
+            opacity: 20%;
+            background-color: rgba(21, 124, 128, 0.2);
+        }
+        .content p {
+            color: #9f9f9f;
+            letter-spacing: 3px;
+            font-size: 12px;
+        }
+        .footer {
+            padding-top: 6px;
+            display: flex;
+            justify-content: space-between;
+            #background: #298fca;
+            align-items: center;
+            height: 45px;
+        }
+        .ft-l {
+            margin: 0;
+            display: flex;
+            align-items: center;
+            padding-left: 20px;
+        }
+        .ft-l img {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            object-fit: cover;
+            transition: all 0.50s ease;
+        }
+        .ft-l img:hover {
+            opacity: 50%;
+        }
+        .ft-l a {
+            margin-left: 0.5rem;
+            text-decoration: none;
+            transition: all 0.30s ease;
+        }
+        .ft-l a p:hover {
+            color: rgba(21, 124, 128);
+            border-bottom: 2px solid rgba(21, 124, 128);
+        }
+        .ft-r {
+            margin: 0;
+            padding-right: 20px;
+        }
+        .ft-r a {
+            text-decoration: none;
+            transition: all 0.30s ease;
+        }
+        .ft-r a:hover {
+            color: rgba(21, 124, 128);
+            border-bottom: 2px solid rgba(21, 124, 128);
+        }
+        .profile {
+            width: 320px;
+            height: 220px;
+            margin: 20px auto;
+            #background-color: rgb(100, 112, 50);
+        }
+        .pro-l {
+            width: 160px;
+            height: 220px;
+            float: left;
+        }
+        .pro-l img {
+            border-radius: 10px;
+            transition: all 0.50s ease;
+        }
+        .pro-l img:hover {
+            opacity: 50%;
+        }
+        .pro-r {
+            width: 160px;
+            height: 220px;
+            float: right;
+            text-align: center;
+            vertical-align: middle;
+            transform: translateY(20%);
+            top: -50%;
+            
+        }
+        .pro-r p {
+            padding-left: 10%;
+            padding-right: 10%;
+            font-family: 'Poppins';
+        }
+        .botnav {
+            width: 320px;
+            height: 280px;
+            margin: 20px auto;
+            background-color: #FF0000;
+            overflow: hidden;
+            padding: 0;
+        }
+        .youtube {
+            width: 320px;
+            height: 280px;
+        }
+        /* visitors_panel */ 
+        #visitors_panel_header {
+            display: none;
+        }
+        #visitors_panel_body a.av_name {
+            text-decoration: none;
+            font-family: 'Poppins';
+        }
+        #visitors_panel_body a.av_name:hover {
+            color: rgba(21, 124, 128);
+        }
+        #visitors_panel_body .av_pic img {
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            object-fit: cover;
+            transition: all 0.30s ease;
+        }
+        #visitors_panel_body .av_pic img:hover {
+            opacity: 50%;
+        }
+        #visitors_panel_body .badgeimg {
+            display: none;
+        }
+        #visitors_panel_body .infosprites {
+            display: none;
+        }
+        #visitors_panel_body .badgecount-sprite {
+            display: none;
+        }
+        </style>
+        <div class="contain">
+            <div class="main">
+                <div class="img">
+                    <img src="http://userimages-akm.imvu.com/userdata/52/59/70/46/userpics/Snap_OifTmihCV61888598007.jpg" alt="">
+                </div>
+                <div class="content">
+                    <div class="center">
+                        <h3>October 17, 2001</h3>
+                        <h1>SPINDRIFTZ</h1>
+                        <p>สวัสดีงับ โคตรเหงาเลยเนอะ 5555</p>
+                        <p>คนไทยนะ</p>
+                        <p>&nbsp;</p>
+                        <p>♡</p>
+                        <p>•</p>
+                        <p>♡</p>
+                        <p>&nbsp;</p>
+                        <p>เหงา เหงา เหงา</p>
+                        <p>ติดต่อ Send Message มา</p>
+                    </div>
+                </div>
+                <div class="footer">
+                    <div class="ft-l">
+                        <a href="#">
+                            <img src="http://www.imvu.com/catalog/web_av_pic.php?u=152597046" alt="Image" title="BLUE♡">
+                        </a>
+                        <a href="#">
+                            <p>Spindriftz</p>
+                        </a>
+                    </div>
+                    <div class="ft-r">
+                        <a href="#">Send Message</a>
+                    </div>
+                </div>
+            </div>
+            <div class="sidebar">
+                <div class="profile">
+                    <div class="pro-l">
+                        <a href="#">
+                            <img src="http://www.imvu.com/catalog/web_av_pic.php?u=152597046" alt title="BLUE♡">
+                        </a>
+                    </div>
+                    <div class="pro-r">
+                        <p>•</p>
+                        <p>And I can only offer you to share the rain with me.</p>
+                        <p>•</p>
+                    </div>
+                </div>
+                <div class="botnav">
+                    <div class="youtobe">
+                        <iframe allowfullscreen="" frameborder="0" width="320" height="280" src="//www.youtube.com/embed/aNRNhanwk-Q?rel=0&amp;autoplay=1&amp;loop=1&amp;"></iframe>
+                    </div>
+            </div>
+        </div>
 </body>
 </html>
