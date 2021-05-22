@@ -83,3 +83,72 @@ html, body {
     color: #0d6efd;
     text-decoration: none;
 }
+/* index */
+.wrapper-crad-img2 {
+    position: relative;
+    padding-top: 56.25%; /* 16:9 */
+    overflow: hidden;
+}
+.wrapper-crad-img2 img {
+    position: absolute;
+    top: 0;
+}
+.birth {
+    text-align: center;
+    margin: 0;
+    font-size: x-small;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #e5e5e5;
+}
+.namebanner {
+    margin: 1rem 0;
+    border: 2px solid #00000000;
+    transition: all 0.50s ease;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.namebanner:hover {
+    border: 2px solid rgba(21, 124, 128);
+    color: rgba(21, 124, 128);
+    transition: color 0.3s ease-in;
+    opacity: 20%;
+    background-color: rgba(21, 124, 128, 0.2);
+}
+.cir-img img{
+    border-radius: 50%;
+}
+.cen {
+    display: flex;
+    justify-content: center;
+}
+.border-ra10 {
+    border-radius: 10px;
+}
+.card-link {
+    color: #0d6efd;
+    text-decoration: none;
+}
+.ghost-button a {
+    color: rgb(90, 90, 90);
+    text-decoration: none;
+}
+.ghost-button a:hover {
+    color: rgb(90, 90, 90);
+    color: floralwhite;
+}
+.ghost-button {
+    text-align: center;
+    width: 316px;
+    height: 46px;
+    border: 2px solid rgb(90, 90, 90);
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin: 30px auto;
+    cursor: pointer;
+    padding-top: 8px;
+    -webkit-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+}
+.ghost-button:hover {
+    background: rgba(90, 90, 90, 0.5);
+    border: 1px solid rgb(90, 90, 90, 0.2);
+}
