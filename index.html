@@ -57,11 +57,20 @@
             background: rgba(21, 124, 128, .5);
             color: #FFFFFF;
         }
+        header {
+            padding: 20px;
+            background: black;
+            color: white;
+            text-align: center;
+        }
+        header h6 {
+            margin-top: 5px;
+            font-family: 'Poppins';
+        }
         .contain {
             width: 740px;
             height: 560px;
             margin: 20px auto;
-            #margin-top: 20px;
         }
         .main {
             width: 360px;
@@ -125,7 +134,6 @@
             padding-top: 6px;
             display: flex;
             justify-content: space-between;
-            #background: #298fca;
             align-items: center;
             height: 45px;
         }
@@ -145,20 +153,15 @@
         .ft-l img:hover {
             opacity: 50%;
         }
-        .ft-l a {
+        .ft-l p {
             margin-left: 0.5rem;
-            text-decoration: none;
-            transition: all 0.30s ease;
-        }
-        .ft-l a p:hover {
-            color: rgba(21, 124, 128);
-            border-bottom: 2px solid rgba(21, 124, 128);
         }
         .ft-r {
             margin: 0;
             padding-right: 20px;
         }
         .ft-r a {
+            color: rgba(21, 124, 128);
             text-decoration: none;
             transition: all 0.30s ease;
         }
@@ -170,7 +173,6 @@
             width: 320px;
             height: 220px;
             margin: 20px auto;
-            #background-color: rgb(100, 112, 50);
         }
         .pro-l {
             width: 160px;
@@ -211,7 +213,37 @@
             width: 320px;
             height: 280px;
         }
+        footer {
+            background: #f4f4f4;
+            height: 150px;
+            text-align: center;
+            color: #868686;
+        }
+        ul {
+            display: block;
+            list-style-type: disc;
+            margin-block-start: 1em;
+            margin-block-end: 1em;
+            margin-inline-start: 0px;
+            margin-inline-end: 0px;
+            padding-inline-start: 40px;
+        }
+        li {
+            font-family: inherit;
+            line-height: 1.5;
+            list-style-position: outside;
+        }
+        .fclass {
+            font-size: 0.7rem;
+    height: 150px;
+    line-height: 150px;
+    text-align: center;
+        }
         </style>
+        <header>
+            <h1>Little GG</h1>
+            <h6>Ramida Wisutwattanasak</h6>
+        </header>
         <div class="contain">
             <div class="main">
                 <div class="img">
@@ -237,12 +269,10 @@
                         <a href="#">
                             <img src="http://www.imvu.com/catalog/web_av_pic.php?u=152597046" alt="Image" title="BLUE♡">
                         </a>
-                        <a href="#">
-                            <p>Spindriftz</p>
-                        </a>
+                        <p>Spindriftz</p>
                     </div>
                     <div class="ft-r">
-                        <a href="#">Send Message</a>
+                        <a href="nav.html">See more</a>
                     </div>
                 </div>
             </div>
@@ -263,7 +293,11 @@
                     <div class="youtobe">
                         <iframe allowfullscreen="" frameborder="0" width="320" height="280" src="//www.youtube.com/embed/aNRNhanwk-Q?rel=0&amp;autoplay=1&amp;loop=1&amp;"></iframe>
                     </div>
+                </div>
             </div>
         </div>
+        <footer class="fclass">
+            <p>© Copyright 2021 BLUEZO.</p>
+        </footer>
 </body>
 </html>
