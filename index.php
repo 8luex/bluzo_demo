@@ -76,7 +76,7 @@
             </section>
             <section class="col-12 text-center py-3">
                 <div class="ghost-button">
-                    <a href="nav.html">View site</a>
+                    <a href="home.php">View site</a>
                 </div> 
             </section>
         </div>

@@ -332,11 +332,11 @@ li.inverted > .timeline-card {
 /* On to top */
 #myBtn {
     display: none; /* Hidden by default */
-    position: fixed; /* Fixed/sticky position */
-    width: 45px;
-    height: 45px;
-    bottom: 2%;
-    right: 2%;
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    bottom: 15px;
+    right: 15px;
     z-index: 9999; /* Make sure it does not overlap */
     border: none; /* Remove borders */
     outline: none; /* Remove outline */
@@ -353,7 +353,9 @@ li.inverted > .timeline-card {
 }
 @media (max-width: 768px) {
     #myBtn {
-        width: 40px;
-        height: 40px;
+        width: 45px;
+        height: 45px;
+        text-align: center !important;
+        border-radius: 10px !important;
     }
 }
