@@ -137,30 +137,47 @@ html, body {
     color: #0d6efd;
     text-decoration: none;
 }
-.ghost-button a {
-    color: rgb(90, 90, 90);
+.ghost-button a{
     text-decoration: none;
-}
-.ghost-button a:hover {
-    color: rgb(90, 90, 90);
-    color: floralwhite;
+    color: #383736;
 }
 .ghost-button {
-    text-align: center;
-    width: 316px;
-    height: 46px;
-    border: 2px solid rgb(90, 90, 90);
-    letter-spacing: 4px;
+    height: 45px;
+    width: 150px;
+    margin: 10px 7px;
+    padding: 10px 5px 5px 5px;
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: 2px;
+    color: #383736;
+    border: 2px #383736 solid;
+    border-radius: 4px;
     text-transform: uppercase;
-    margin: 30px auto;
+    outline: 0;
+    overflow: hidden;
+    background: none;
     cursor: pointer;
-    padding-top: 8px;
-    -webkit-transition: all .2s ease-in-out;
-    transition: all .2s ease-in-out;
+    position: relative;
+    left: 50%;
+    margin-left: -75px; /* width/2 */
 }
+.ghost-button:before {
+    position: absolute;
+    color: #383736;
+    left: 88%;
+    opacity: 0;
+    -webkit-transition: all 0.2s ease-in;
+}
+.ghost-button:hover:before {
+    left: 91%;
+    opacity: 1;
+}
+
 .ghost-button:hover {
-    background: rgba(90, 90, 90, 0.5);
-    border: 1px solid rgb(90, 90, 90, 0.2);
+    border: 0px;
+    -webkit-transform: scale(1.05, 1.05);
+    -webkit-transition: border 0.3s ease-out;
+    -webkit-transition: transform 250ms cubic-bezier(0.680, -0.550, 0.265, 1.550); 
 }
 /* about */
 .page-title {
@@ -326,11 +343,17 @@ li.inverted > .timeline-card {
     background-color: #b4e0ff96;
     color: rgb(90, 90, 90);
     cursor: pointer; /* Add a mouse pointer on hover */
-    border-radius: 50%;
+    border-radius: 50% !important;
     font-size: 28px;
-    text-align: center;
+    text-align: center !important;
 }
 #myBtn:hover {
     background: #50799796;
     color: floralwhite;
+}
+@media (max-width: 768px) {
+    #myBtn {
+        width: 40px;
+        height: 40px;
+    }
 }
