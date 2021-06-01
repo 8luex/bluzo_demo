@@ -8,4 +8,5 @@
         echo "Connect Error : ".$conn->connect_error;
         exit();
     }
+    $base_path_image = 'images/';
 ?>

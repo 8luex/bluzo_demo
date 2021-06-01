@@ -1,7 +1,22 @@
 <?php
     require_once('php/connect.php');
-    $sql = "SELECT * FROM `blog`";
-    $result = $conn->query($sql) or die($conn->error);
+    // echo $_GET['tag'];
+
+    if(isset($_GET['tag'])) {
+        $tag = $_GET['tag'];
+    } else {
+        $tag = 'all';
+    }
+
+    // short if
+    // $tag = isset($_GET['tag']) ? $_GET['tag'] : 'all';
+
+    // $sql = "SELECT * FROM `blog`";
+    $sql = "SELECT * FROM `blog` WHERE `tag` LIKE '%".$tag."%' AND `status` = 'true'";
+    $result = $conn->query($sql);
+    if(!$result) {
+        header('Location: blog.php');
+    }
 
     // echo print_r($result);
 ?>
@@ -60,21 +75,35 @@
         <div class="row pb-4">
             <div class="col-12 text-center">
                 <div class="btn-group-custom">
-                    <button class="btn btn-primary">ทั้งหมด</button>
-                    <button class="btn btn-primary">HTML</button>
-                    <button class="btn btn-primary">CSS</button>
-                    <button class="btn btn-primary">Javascript</button>
-                    <button class="btn btn-primary">PHP</button>
-                    <button class="btn btn-primary">MySQL</button>
+                    <a href="blog.php?tag=all" style="text-decoration: none !important;">
+                        <button class="btn btn-primary <?php echo $tag == 'all' ? 'active' : '' ?>">ทั้งหมด</button>
+                    <a href="blog.php?tag=html" style="text-decoration: none !important;">
+                        <button class="btn btn-primary <?php echo $tag == 'html' ? 'active' : '' ?>">HTML</button>
+                    </a>
+                    <a href="blog.php?tag=css" style="text-decoration: none !important;">
+                        <button class="btn btn-primary <?php echo $tag == 'css' ? 'active' : '' ?>">CSS</button>
+                    </a>
+                    <a href="blog.php?tag=javascript" style="text-decoration: none !important;">
+                        <button class="btn btn-primary <?php echo $tag == 'javascript' ? 'active' : '' ?>">Javascript</button>
+                    </a>
+                    <a href="blog.php?tag=php" style="text-decoration: none !important;">
+                        <button class="btn btn-primary <?php echo $tag == 'php' ? 'active' : '' ?>">PHP</button>
+                    </a>
+                    <a href="blog.php?tag=mysql" style="text-decoration: none !important;">
+                        <button class="btn btn-primary <?php echo $tag == 'mysql' ? 'active' : '' ?>">MySQL</button>
+                    </a>
                 </div>
             </div>
         </div>
         <div class="row">
-            <?php while($row = $result->fetch_assoc()) { ?>
+            <?php
+                if($result->num_rows) {
+                    while($row = $result->fetch_assoc()) {
+            ?>
             <section class="col-12 col-sm-6 col-md-4 p-2">
                 <div class="card h-100">
                     <a href="blog-detail.php?id=<?php echo $row['id'] ?>" class="wrapper-crad-img">
-                        <img src="<?php echo $row['image'] ?>" class="card-img-top" alt="...">
+                        <img src="<?php echo $base_path_image.$row['image'] ?>" class="card-img-top" alt="...">
                     </a>
                     <div class="card-body">
                         <h5 class="card-title"><?php echo $row['subject'] ?></h5>
@@ -85,7 +114,26 @@
                     </div>
                 </div>
             </section>
-            <?php } ?>
+            <?php
+                    }
+                } else {
+            ?>
+            <section class="col-12">
+                <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+                    <symbol id="exclamation-triangle-fill" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                    </symbol>
+                </svg>
+                <div class="alert alert-danger d-flex align-items-center" role="alert">
+                    <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+                    <div>
+                        ไม่พบข้อมูล
+                    </div>
+                </div>
+            </section>
+            <?php
+                }      
+            ?>
         </div>
     </section>
     <!-- Rate Me---------------- -->

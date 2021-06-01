@@ -1,3 +1,8 @@
+<?php
+    require_once('php/connect.php');
+    $sql = "SELECT * FROM `blog` WHERE `status` = 'true' ORDER BY RAND() LIMIT 6";
+    $result = $conn->query($sql);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -74,90 +79,22 @@
     <section class="container">
         <h1 class="display-5 text-center">บทความ</h1>
         <div class="row">
+            <?php while($row = $result->fetch_assoc()) { ?>
             <section class="col-12 col-sm-6 col-md-4 p-2">
                 <div class="card h-100">
-                    <a href="#" class="wrapper-crad-img">
-                        <img src="images/E14iO1WVoAQQ3sI.jpg" class="card-img-top" alt="...">
+                    <a href="blog-detail.php?id=<?php echo $row['id'] ?>" class="wrapper-crad-img">
+                        <img src="<?php echo $base_path_image.$row['image'] ?>" class="card-img-top" alt="...">
                     </a>
                     <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <h5 class="card-title"><?php echo $row['subject'] ?></h5>
+                        <p class="card-text"><?php echo $row['sub_title'] ?></p>
                     </div>
                     <div class="p-2">
-                        <a href="#" class="btn btn-teal d-grid">อ่านเพิ่มเติม</a>
+                        <a href="blog-detail.php?id=<?php echo $row['id'] ?>" class="btn btn-teal d-grid">อ่านเพิ่มเติม</a>
                     </div>
                 </div>
             </section>
-            <section class="col-12 col-sm-6 col-md-4 p-2">
-                <div class="card h-100">
-                    <a href="#" class="wrapper-crad-img">
-                        <img src="images/E14iO1ZUYAQV82b.jpg" class="card-img-top" alt="...">
-                    </a>
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content. Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, voluptatem!</p>
-                    </div>
-                    <div class="p-2">
-                        <a href="#" class="btn btn-teal d-grid">อ่านเพิ่มเติม</a>
-                    </div>
-                </div>
-            </section>
-            <section class="col-12 col-sm-6 col-md-4 p-2">
-                <div class="card h-100">
-                    <a href="#" class="wrapper-crad-img">
-                        <img src="images/E1QpGV3VcAUoYES.jpg" class="card-img-top" alt="...">
-                    </a>
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    </div>
-                    <div class="p-2">
-                        <a href="#" class="btn btn-teal d-grid">อ่านเพิ่มเติม</a>
-                    </div>
-                </div>
-            </section>
-            <section class="col-12 col-sm-6 col-md-4 p-2">
-                <div class="card h-100">
-                    <a href="#" class="wrapper-crad-img">
-                        <img src="images/E1vZXlzVcAg4MMp.jpg" class="card-img-top" alt="...">
-                    </a>
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content. Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim, id.</p>
-                    </div>
-                    <div class="p-2">
-                        <a href="#" class="btn btn-teal d-grid">อ่านเพิ่มเติม</a>
-                    </div>
-                </div>
-            </section>
-            <section class="col-12 col-sm-6 col-md-4 p-2">
-                <div class="card h-100">
-                    <a href="#" class="wrapper-crad-img">
-                        <img src="images/E14iPzkVIAIPMNh.jpg" class="card-img-top" alt="...">
-                    </a>  
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content. Lorem, ipsum dolor.</p>
-                    </div>
-                    <div class="p-2">
-                        <a href="#" class="btn btn-teal d-grid">อ่านเพิ่มเติม</a>
-                    </div>
-                </div>
-            </section>
-            <section class="col-12 col-sm-6 col-md-4 p-2">
-                <div class="card h-100">
-                    <a href="#" class="wrapper-crad-img">
-                        <img src="images/E14Sf_eVUAUnOKd.jpg" class="card-img-top" alt="...">
-                    </a>
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content. Lorem ipsum dolor sit amet.</p>
-                    </div>
-                    <div class="p-2">
-                        <a href="#" class="btn btn-teal d-grid">อ่านเพิ่มเติม</a>
-                    </div>
-                </div>
-            </section>
+            <?php } ?>
         </div>
     </section>
     <!-- End Blog -->

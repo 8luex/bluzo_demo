@@ -1,6 +1,6 @@
 <?php
     require_once('php/connect.php');
-    $sql = "SELECT * FROM `blog` WHERE id = '".$_GET['id']."'";
+    $sql = "SELECT * FROM `blog` WHERE id = '".$_GET['id']."' AND `status` = 'true'";
     $result = $conn->query($sql) or die($conn->error);
 
     if($result->num_rows > 0) {
@@ -9,6 +9,10 @@
         // echo "ไม่มีข้อมูล";
         header('Location: blog.php');
     }
+
+    $sql_RAND = "SELECT * FROM `blog` WHERE `status` = 'true' ORDER BY RAND() LIMIT 3";
+    $result_RAND = $conn->query($sql_RAND);
+    // echo '<pre>', print_r($row_RAND), '</pre>';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -41,7 +45,7 @@
     <?php include_once('includes/navbar.php') ?>
     <!-- End Section Navbar -->
     <!-- Page Title (Alternate: Background Image Parallax) -->
-    <header data-jarallax="{'speed':0.2}" class="page-title jarallax" style="background-image: url(<?php echo $row['image'] ?>);">
+    <header data-jarallax="{'speed':0.2}" class="page-title jarallax" style="background-image: url(<?php echo $base_path_image.$row['image'] ?>);">
         <div class="col-12 text-center">
             <h1><?php echo $row['subject'] ?></h1>
             <p><?php echo $row['sub_title'] ?></p>
@@ -60,48 +64,22 @@
                 <p class="text-end text-muted"><?php echo $row['refer'] ?></p>
             </div>
             <!-- card -->
+            <?php while($row_RAND = $result_RAND->fetch_assoc()) { ?>
             <section class="col-12 col-sm-6 col-md-4 p-2">
                 <div class="card h-100">
-                    <a href="#" class="wrapper-crad-img">
-                        <img src="images/E1QpGV3VcAUoYES.jpg" class="card-img-top" alt="...">
+                    <a href="blog-detail.php?id=<?php echo $row_RAND['id'] ?>" class="wrapper-crad-img">
+                        <img src="<?php echo $base_path_image.$row_RAND['image'] ?>" class="card-img-top" alt="...">
                     </a>
                     <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <h5 class="card-title"><?php echo $row_RAND['subject'] ?></h5>
+                        <p class="card-text"><?php echo $row_RAND['sub_title'] ?></p>
                     </div>
                     <div class="p-2">
-                        <a href="#" class="btn btn-teal d-grid">อ่านเพิ่มเติม</a>
+                        <a href="blog-detail.php?id=<?php echo $row_RAND['id'] ?>" class="btn btn-teal d-grid">อ่านเพิ่มเติม</a>
                     </div>
                 </div>
             </section>
-            <section class="col-12 col-sm-6 col-md-4 p-2">
-                <div class="card h-100">
-                    <a href="#" class="wrapper-crad-img">
-                        <img src="images/E1vZXlzVcAg4MMp.jpg" class="card-img-top" alt="...">
-                    </a>
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content. Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim, id.</p>
-                    </div>
-                    <div class="p-2">
-                        <a href="#" class="btn btn-teal d-grid">อ่านเพิ่มเติม</a>
-                    </div>
-                </div>
-            </section>
-            <section class="col-12 col-sm-6 col-md-4 p-2">
-                <div class="card h-100">
-                    <a href="#" class="wrapper-crad-img">
-                        <img src="images/E14iPzkVIAIPMNh.jpg" class="card-img-top" alt="...">
-                    </a>  
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content. Lorem, ipsum dolor.</p>
-                    </div>
-                    <div class="p-2">
-                        <a href="#" class="btn btn-teal d-grid">อ่านเพิ่มเติม</a>
-                    </div>
-                </div>
-            </section>
+            <?php } ?>
             <div class="col-12">
                 <div class="fb-comments" data-href="https://bluezo.000webhostapp.com/blog-detail.php?id=<?php echo $row['id'] ?>" data-width="100%" data-numposts="5"></div>
                 <div id="fb-root"></div>
