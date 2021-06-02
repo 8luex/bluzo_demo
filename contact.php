@@ -18,6 +18,7 @@
     <meta name="theme-color" content="#ffffff">
     <!-- CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- <link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-free/css/all.min.css"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/style.css">
@@ -83,29 +84,29 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">แบบฟอร์มติดต่อเรา</h5>
-                        <form class="row">
+                        <form method="post" action="php/act-contact.php" class="row">
                             <div class="mb-3 col-md-4">
                                 <label for="name" class="form-label">ชื่อ</label>
-                                <input type="text" class="form-control" id="name" placeholder="ชื่อของคุณ">
+                                <input type="text" class="form-control" id="name" name="name" required placeholder="ชื่อของคุณ">
                             </div>
                             <div class="mb-3 col-md-4">
                                 <label for="phone" class="form-label">เบอร์โทรศัพท์</label>
-                                <input type="text" class="form-control" id="phone" placeholder="เบอร์โทรศัพท์ของคุณ">
+                                <input type="text" class="form-control" id="phone" name="phone" required placeholder="เบอร์โทรศัพท์ของคุณ">
                             </div>
                             <div class="mb-3 col-md-4">
                                 <label for="email" class="form-label">อีเมลล์</label>
-                                <input type="email" class="form-control" id="email" placeholder="example@email.com" aria-describedby="emailHelp">
+                                <input type="email" class="form-control" id="email" name="email" required placeholder="example@email.com" aria-describedby="emailHelp">
                                 <div id="emailHelp" class="form-text" style="font-size: 10px;">We'll never share your email with anyone else.</div>
                             </div>
                             <div class="mb-3">
                                 <label for="message" class="form-label">ข้อความของคุณ</label>
-                                <textarea class="form-control" id="message" rows="5" placeholder="เขียนข้อความของคุณที่นี่"></textarea>
+                                <textarea class="form-control" id="message" name="message" required rows="5" placeholder="เขียนข้อความของคุณที่นี่"></textarea>
                             </div>
                             <div class="col-12">
                                 <div id="recaptcha-wrapper" class="text-center my-2">
                                     <div class="g-recaptcha d-inline-block" data-callback="recaptchaCallback" data-sitekey="6Lcfc_YaAAAAAHz0Xca3_H8AyDwJJF_erHTAsA5e"></div>
                                 </div>
-                                <button type="submit" class="btn btn-primary d-block mx-auto">ส่งข้อความ</button>
+                                <button type="submit" name="btn-submit" id="btn-submit" class="btn btn-primary d-block mx-auto" disabled>ส่งข้อความ</button>
                             </div>  
                         </form>
                     </div>
@@ -156,6 +157,9 @@
             }
         }
         // resizeCaptcha();
+        function recaptchaCallback() {
+            $('#btn-submit').removeAttr('disabled');
+        }
     </script>
 </body>
 </html>
